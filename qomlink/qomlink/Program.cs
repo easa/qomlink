@@ -88,9 +88,7 @@ namespace qomlink
 		  }
 		  static public void welcomepage()
 		  {
-				Console.WriteLine("Hello, welcome to qomlink 0.3");
-				Console.WriteLine("Press F1          to help.");
-				//help();
+				Console.WriteLine("Welcome to qomlink 0.5! press F1 to help");
 		  }
 		  static public async void logout()
 		  {
@@ -126,19 +124,24 @@ namespace qomlink
 		  }
 		  static public void Shedule()
 		  {
-				console.log("This will login automaticly, and will remove by pressing BACKSPACE.\n");
 				Console.Write("Please Enter the minutes to try login: ");
 				string tempmin = Console.ReadLine();
 				int min = 1;
 				int.TryParse(tempmin, out min);
-				Service.Scheduling.set(min);
+				Service.Scheduling.set(alert, min);
 		  }
+
+		  private static string alert(string message)
+		  {
+				console.log(message);
+				return "";
+		  }
+
 		  static public void wifi()
 		  {
 				console.log("wifi\n");
 				//bool isenabled = new Batch().Set(Commands.EnableWiFi).Exec();
 				console.log((false) ? "connected" : "notConnected");
 		  }
-
 	 }
 }

@@ -17,7 +17,7 @@ namespace Service
 		  public async Task<status> connect(User user)
 		  {
 				if (user == null) return status.Not_authorized;
-				string website = string.Format("{0}/{1}", Url, "logout");
+				string website = string.Format("{0}/{1}", Url, "login");
 				string data = string.Format("username={0}&password={1}", user.username, user.password);
 				string response = await sendRequest(website, data);
 				if (response.IndexOf("<title>mikrotik hotspot > redirect</title>") >= 0)
@@ -26,7 +26,9 @@ namespace Service
 					 return status.Disconnected;
 				else if (response.IndexOf("The remote server returned an error: (502) Bad Gateway") >= 0)
 					 return status.Bad_getway;
-				else return status.Already_connected;
+				else if (response.IndexOf("Configuration system failed to initialize") >= 0)
+					 return status.Error;
+				else return status.Already_connected; 
 		  }
 		  async public Task<status> disConnect()
 		  {

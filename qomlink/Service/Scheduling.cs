@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Threading;
 
 namespace Service
@@ -8,7 +9,7 @@ namespace Service
         static bool condition;
         static int minutes;
 
-        public static void set(int min)
+        public static void set(Func<string, string> task, int min)
         {
             if (!(0 < min && min < 1000))
             {
@@ -16,15 +17,21 @@ namespace Service
             }
             minutes = min;
             condition = true;
-            main();
+            main(task);
+				message = "setting Schedule done successfuly!";
         }
         public static void remove()
         {
             condition = false;
+				message = "removing Schedule done seccussfuly!";
         }
-        static void main()
+		  /// <summary>
+		  /// It's the main scheduling base of every thing, base of tasks
+		  /// , I use it to sleep!
+		  /// </summary>
+        static void main(Func<string, string> myTask)
         {
-            myFunc();
+            task(myTask);
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += new DoWorkEventHandler(
             delegate (object o, DoWorkEventArgs args)
@@ -35,13 +42,20 @@ namespace Service
             delegate (object o, RunWorkerCompletedEventArgs args)
             {
                 if (condition)
-                    main();
-            });
+                    main(myTask);
+					 });
             bw.RunWorkerAsync();
         }
-        static void myFunc()
-        {
-            //TODO login
-        }
-    }
+		  /// <summary>
+		  /// what should happen after time pass is in here
+		  /// </summary>
+		  static async void task(Func<string, string> mytask)
+		  {
+				mytask(minutes + " min pass");
+				Service sv = new Service();
+				var temp = await sv.login();
+				mytask("login " + (temp ? "succssfuly" : sv.message));
+		  }
+		  public static string message { get; set; }
+	 }
 }
