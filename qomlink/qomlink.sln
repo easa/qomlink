@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qomlink", "qomlink\qomlink.csproj", "{CA2C3F4D-0C66-4114-8E76-1F064AF0963D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{FD31C5EC-9E03-48DA-B1C1-167A47C5A029}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{473AE801-34CD-418D-B25C-2021A88DB388}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CA2C3F4D-0C66-4114-8E76-1F064AF0963D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA2C3F4D-0C66-4114-8E76-1F064AF0963D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA2C3F4D-0C66-4114-8E76-1F064AF0963D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD31C5EC-9E03-48DA-B1C1-167A47C5A029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD31C5EC-9E03-48DA-B1C1-167A47C5A029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD31C5EC-9E03-48DA-B1C1-167A47C5A029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD31C5EC-9E03-48DA-B1C1-167A47C5A029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{473AE801-34CD-418D-B25C-2021A88DB388}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{473AE801-34CD-418D-B25C-2021A88DB388}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{473AE801-34CD-418D-B25C-2021A88DB388}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{473AE801-34CD-418D-B25C-2021A88DB388}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Threading;
 
-namespace userCall.Models
+namespace Service
 {
-    static class Sheduling
+    public static class Scheduling
     {
         static bool condition;
         static int minutes;
@@ -12,20 +12,14 @@ namespace userCall.Models
         {
             if (!(0 < min && min < 1000))
             {
-                console.log("Inaproprate!");
                 return;
             }
             minutes = min;
             condition = true;
-
-            console.log("Sheduling sets every " + minutes + " minutes!");
             main();
         }
         public static void remove()
         {
-            if(condition)
-                console.log("Sheduling removed!");
-
             condition = false;
         }
         static void main()
@@ -40,7 +34,6 @@ namespace userCall.Models
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
             delegate (object o, RunWorkerCompletedEventArgs args)
             {
-                console.log(" " + minutes + " m past. ");
                 if (condition)
                     main();
             });
@@ -48,7 +41,7 @@ namespace userCall.Models
         }
         static void myFunc()
         {
-            iface.login();
+            //TODO login
         }
     }
 }

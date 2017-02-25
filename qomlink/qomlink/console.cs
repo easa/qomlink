@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace userCall.Models
+namespace qomlink.Models
 {
     class console
     {
@@ -26,7 +26,9 @@ namespace userCall.Models
             {
                 Console.SetCursorPosition(x, y);
             }
-            catch (Exception e) { }
+            catch (Exception e) {
+					 console.log(e.Message);
+				}
         }
         protected static void WriteAt(string s, int x, int y)
         {
@@ -38,7 +40,7 @@ namespace userCall.Models
             catch (ArgumentOutOfRangeException e)
             {
                 //Console.Clear();
-                //console.log(e.Message);
+                console.log(e.Message);
             }
         }
     }
